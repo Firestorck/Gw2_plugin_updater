@@ -1,0 +1,24 @@
+#Firestorck's plugin updater for GuildWars2
+path : C:\Program Files\Guild Wars 2\bin64
+arcdps
+    True
+    https://www.deltaconnected.com/arcdps/x64/d3d9.dll
+healing stats
+    True
+    https://github.com/Krappa322/arcdps_healing_stats/releases/latest/download/arcdps_healing_stats.dll
+buildpad
+    True
+    https://buildpad.gw2archive.eu/versions/latest
+    d3d9_arcdps_buildpad.dll
+killproof
+    True
+    https://github.com/knoxfighter/arcdps-killproof.me-plugin/releases/latest/download/d3d9_arcdps_killproof_me.dll
+mechanics
+    True
+    https://github.com/knoxfighter/GW2-ArcDPS-Mechanics-Log/releases/latest/download/d3d9_arcdps_mechanics.dll
+boontable
+    True
+    https://github.com/knoxfighter/GW2-ArcDPS-Boon-Table/releases/latest/download/d3d9_arcdps_table.dll
+uploader
+    False
+    https://github.com/datatobridge/arcdps-uploader/releases/latest/download/
