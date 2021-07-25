@@ -45,15 +45,45 @@ def ConfigEdit():
     print("config done")
 
 def ConfigLinks(Data):
-    if input(f'Do you want to install {Data[1]} ? (N to cancel, enter to continue)\r\n').lower().find('n') == -1:
+    if input(f'\r\nDo you want to install {Data[1]} ? (N to cancel, enter to continue)\r\n').lower().find('n') == -1:
         if input(f'Keep theese informations?\r\n Download link : {Data[0]} \r\nFinal file name : {Data[2]}\r\n').lower().find('n') == -1:
             open('config_updater.txt', 'a').write(f'{Data[1]}\r\n    True\r\n    {Data[0]}\r\n    {Data[2]}\r\n')
         else:
-            Data[1] = input(f'Please enter the new name for {Data[1]}\r\n')
-            Data[2] = input(f'Please enter the new File name for {Data[2]}\r\n')
-            Data[0] = input(f'Please enter the new download link for {Data[0]}\r\n')
-    else:
-        open('config_updater.txt', 'a').write(f'{Data[1]}\r\n    False\r\n    {Data[0]}\r\n    {Data[2]}\r\n')
+            
+            usr_input = input(f'Please enter the new name for {Data[1]}\r\n')
+            if usr_input.replace(' ', '') != '':
+                Data[1] = usr_input
+            else:
+                print(f'Could not find a correct input, set to default as {Data[1]}')
+            
+            usr_input = input(f'Please enter the new File name for {Data[2]} in the format of "d3d9_arcdps_<name>.dll\r\n')
+            if usr_input.replace(' ', '') != '':
+                Data[2] = usr_input
+            else:
+                print(f'Could not find a correct input, set to default as {Data[2]}')
+                usr_input = Data[2]
+            while usr_input.find('.dll') == -1 and usr_input.find('d3d9') == -1:
+                usr_input = input(f'Please enter the new File name for {Data[1]} in the format of "d3d9_arcdps_<name>.dll\r\n')
+                if usr_input.replace(' ', '') != '':
+                    Data[2] = usr_input
+                else:
+                    print(f'Could not find a correct input, set to default as {Data[2]}')
+                    usr_input = Data[2]
+            
+            usr_input = input(f'Please enter the new download link for {Data[0]}\r\n')
+            if usr_input.replace(' ', '') != '':
+                Data[0] = usr_input
+            else:
+                print(f'Could not find a correct input, set to default as {Data[0]}')
+                usr_input = Data[0]
+            while usr_input.find('http') == -1:
+                usr_input = input(f'Please enter the new download link for {Data[1]}\r\nLast input : {Data[0]}\r\n')
+                if usr_input.replace(' ', '') != '':
+                    Data[0] = usr_input
+                else:
+                    print(f'Could not find a correct input, set to default as {Data[0]}')
+                    usr_input = Data[0]
+    open('config_updater.txt', 'a').write(f'{Data[1]}\r\n    False\r\n    {Data[0]}\r\n    {Data[2]}\r\n')
 
 def UpdateAuto():
     ConfigF = open("config_updater.txt", "r")
