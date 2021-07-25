@@ -14,3 +14,4 @@ for i in config:
 print('\r\nprinting links')
 for i in links:
     print(i)
+print('test')
