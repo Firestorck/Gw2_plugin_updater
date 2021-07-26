@@ -1,17 +1,18 @@
-ConfigF = open("config_updater.txt", "r")
-config = ConfigF.readlines()
-links = []
-n = -1
-for i in config:
-    n = n+1
-    print(n)
-    print(i)
-    if config[n].startswith('    https://'):
-        new_link = config[n].strip() # or config[n].replace(" ", "")
-        new_link = new_link.replace("\n", '')
-        links.append(new_link)
-        print(f'added {new_link} to links.')
-print('\r\nprinting links')
-for i in links:
-    print(i)
-print('test')
+import tkinter as tk
+
+root = tk.Tk()
+canvas = tk.Canvas(root, height=108, width=192)
+canvas.pack()
+
+frame = tk.Frame(root, bg='#555555')
+frame.place(relwidth=1, relheight=1)
+
+testLabel = tk.Label(frame, text='hello world!')
+button = tk.Button(frame, text='test', bg='gray', fg='red')
+
+entry = tk.Entry(frame, bg='orange', text='test')
+entry.pack()
+
+testLabel.pack()
+button.pack()
+root.mainloop()

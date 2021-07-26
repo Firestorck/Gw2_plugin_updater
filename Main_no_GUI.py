@@ -83,7 +83,7 @@ def ConfigLinks(Data):
                 else:
                     print(f'Could not find a correct input, set to default as {Data[0]}')
                     usr_input = Data[0]
-    open('config_updater.txt', 'a').write(f'{Data[1]}\r\n    False\r\n    {Data[0]}\r\n    {Data[2]}\r\n')
+            open('config_updater.txt', 'a').write(f'{Data[1]}\r\n    False\r\n    {Data[0]}\r\n    {Data[2]}\r\n')
 
 def UpdateAuto():
     ConfigF = open("config_updater.txt", "r")
