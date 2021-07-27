@@ -16,14 +16,14 @@ def Startup():
         #    print('Vous avez décidé de ne pas configurer ce programme, il utilisera donc la configuration par défaut. Vous pourrez toujours changer ces paramètres en modifiant le fichier "config_updater.txt" ou en le supprimant')
         if input("It seems like it is you first time using this programm, Do you want to start the config? (N for manual configuration, enter for automatic configuration.)").lower().find("n") == -1:
             print('You have decided to not manually configurate this programm. All will be set to default, but you can still change them by editing or deleting the "config_updater.txt"')
-            open('config_updater.txt', 'w').write("#Firestorck's plugin updater for GuildWars2\r\npath : C:\\Program Files\\Guild Wars 2\\bin64\r\narcdps\r\n    True\r\n    https://www.deltaconnected.com/arcdps/x64/d3d9.dll\r\n    d3d9.dll\r\nhealing stats\r\n    True\r\n    https://github.com/Krappa322/arcdps_healing_stats/releases/latest/download/arcdps_healing_stats.dll\r\n    d3d9_arcdps_healing_stats\r\nbuildpad\r\n    True\r\n    https://buildpad.gw2archive.eu/versions/latest\r\n    d3d9_arcdps_buildpad.dll\r\nkillproof\r\n    True\r\n    https://github.com/knoxfighter/arcdps-killproof.me-plugin/releases/latest/download/d3d9_arcdps_killproof_me.dll\r\n    d3d9_arcdps_killproof_me.dll\r\nmechanics\r\n    True\r\n    https://github.com/knoxfighter/GW2-ArcDPS-Mechanics-Log/releases/latest/download/d3d9_arcdps_mechanics.dll\r\n    d3d9_arcdps_mechanics.dll\r\nboon table\r\n    True\r\n    https://github.com/knoxfighter/GW2-ArcDPS-Boon-Table/releases/latest/download/d3d9_arcdps_table.dll\r\n    d3d9_arcdps_table.dll\r\n")
+            open('config_updater.txt', 'w').write("#Firestorck's plugin updater for GuildWars2\npath : C:\\Program Files\\Guild Wars 2\\bin64\narcdps\n    True\n    https://www.deltaconnected.com/arcdps/x64/d3d9.dll\n    d3d9.dll\nhealing stats\n    True\n    https://github.com/Krappa322/arcdps_healing_stats/releases/latest/download/arcdps_healing_stats.dll\n    d3d9_arcdps_healing_stats\nbuildpad\n    True\n    https://buildpad.gw2archive.eu/versions/latest\n    d3d9_arcdps_buildpad.dll\nkillproof\n    True\n    https://github.com/knoxfighter/arcdps-killproof.me-plugin/releases/latest/download/d3d9_arcdps_killproof_me.dll\n    d3d9_arcdps_killproof_me.dll\nmechanics\n    True\n    https://github.com/knoxfighter/GW2-ArcDPS-Mechanics-Log/releases/latest/download/d3d9_arcdps_mechanics.dll\n    d3d9_arcdps_mechanics.dll\nboon table\n    True\n    https://github.com/knoxfighter/GW2-ArcDPS-Boon-Table/releases/latest/download/d3d9_arcdps_table.dll\n    d3d9_arcdps_table.dll\n")
         else:
             print("Start of the configuration")
             ConfigEdit()
 
 def ConfigEdit():
-    open("config_updater.txt", "a").write("#Firestorck's plugin updater for GuildWars2\r\n")
-    #Config.write("#Firestorck's plugin updater for GuildWars2\r\n")
+    open("config_updater.txt", "a").write("#Firestorck's plugin updater for GuildWars2\n")
+    #Config.write("#Firestorck's plugin updater for GuildWars2\n")
     path = r'C:\Program Files\Guild Wars 2\bin64'
     arcdps = [r'https://www.deltaconnected.com/arcdps/x64/d3d9.dll', 'arcdps', 'd3d9.dll']
     healing_stats = [r'https://github.com/Krappa322/arcdps_healing_stats/releases/latest/download/arcdps_healing_stats.dll', 'healing stats', 'd3d9_arcdps_healing_stats']
@@ -32,10 +32,10 @@ def ConfigEdit():
     mechanics = [r'https://github.com/knoxfighter/GW2-ArcDPS-Mechanics-Log/releases/latest/download/d3d9_arcdps_mechanics.dll', 'mechanics', 'd3d9_arcdps_mechanics.dll']
     boontable = [r'https://github.com/knoxfighter/GW2-ArcDPS-Boon-Table/releases/latest/download/d3d9_arcdps_table.dll', 'boon table', 'd3d9_arcdps_table.dll']
     if input(f"Is {path} the path to your Guildwars 2 folder?").lower().find("n") == -1 :
-        open("config_updater.txt", "a").write(f'path : {path}\r\n')
+        open("config_updater.txt", "a").write(f'path : {path}\n')
     else:
-        path = input('Please write the path to the "bin64" folder of your game\r\n')
-        open("config_updater.txt", "a").write(f'path : {path}\r\n')
+        path = input('Please write the path to the "bin64" folder of your game\n')
+        open("config_updater.txt", "a").write(f'path : {path}\n')
     ConfigLinks(arcdps)
     ConfigLinks(healing_stats)
     ConfigLinks(buildpad)
@@ -45,45 +45,45 @@ def ConfigEdit():
     print("config done")
 
 def ConfigLinks(Data):
-    if input(f'\r\nDo you want to install {Data[1]} ? (N to cancel, enter to continue)\r\n').lower().find('n') == -1:
-        if input(f'Keep theese informations?\r\n Download link : {Data[0]} \r\nFinal file name : {Data[2]}\r\n').lower().find('n') == -1:
-            open('config_updater.txt', 'a').write(f'{Data[1]}\r\n    True\r\n    {Data[0]}\r\n    {Data[2]}\r\n')
+    if input(f'\nDo you want to install {Data[1]} ? (N to cancel, enter to continue)\n').lower().find('n') == -1:
+        if input(f'Keep theese informations?\n Download link : {Data[0]} \nFinal file name : {Data[2]}\n').lower().find('n') == -1:
+            open('config_updater.txt', 'a').write(f'{Data[1]}\n    True\n    {Data[0]}\n    {Data[2]}\n')
         else:
             
-            usr_input = input(f'Please enter the new name for {Data[1]}\r\n')
+            usr_input = input(f'Please enter the new name for {Data[1]}\n')
             if usr_input.replace(' ', '') != '':
                 Data[1] = usr_input
             else:
                 print(f'Could not find a correct input, set to default as {Data[1]}')
             
-            usr_input = input(f'Please enter the new File name for {Data[2]} in the format of "d3d9_arcdps_<name>.dll\r\n')
+            usr_input = input(f'Please enter the new File name for {Data[2]} in the format of "d3d9_arcdps_<name>.dll\n')
             if usr_input.replace(' ', '') != '':
                 Data[2] = usr_input
             else:
                 print(f'Could not find a correct input, set to default as {Data[2]}')
                 usr_input = Data[2]
             while usr_input.find('.dll') == -1 and usr_input.find('d3d9') == -1:
-                usr_input = input(f'Please enter the new File name for {Data[1]} in the format of "d3d9_arcdps_<name>.dll\r\n')
+                usr_input = input(f'Please enter the new File name for {Data[1]} in the format of "d3d9_arcdps_<name>.dll\n')
                 if usr_input.replace(' ', '') != '':
                     Data[2] = usr_input
                 else:
                     print(f'Could not find a correct input, set to default as {Data[2]}')
                     usr_input = Data[2]
             
-            usr_input = input(f'Please enter the new download link for {Data[0]}\r\n')
+            usr_input = input(f'Please enter the new download link for {Data[0]}\n')
             if usr_input.replace(' ', '') != '':
                 Data[0] = usr_input
             else:
                 print(f'Could not find a correct input, set to default as {Data[0]}')
                 usr_input = Data[0]
             while usr_input.find('http') == -1:
-                usr_input = input(f'Please enter the new download link for {Data[1]}\r\nLast input : {Data[0]}\r\n')
+                usr_input = input(f'Please enter the new download link for {Data[1]}\nLast input : {Data[0]}\n')
                 if usr_input.replace(' ', '') != '':
                     Data[0] = usr_input
                 else:
                     print(f'Could not find a correct input, set to default as {Data[0]}')
                     usr_input = Data[0]
-            open('config_updater.txt', 'a').write(f'{Data[1]}\r\n    False\r\n    {Data[0]}\r\n    {Data[2]}\r\n')
+            open('config_updater.txt', 'a').write(f'{Data[1]}\n    False\n    {Data[0]}\n    {Data[2]}\n')
 
 def UpdateAuto():
     ConfigF = open("config_updater.txt", "r")
@@ -112,17 +112,17 @@ def UpdateAuto():
             Enabled = True
         else:
             Enabled = False
-    print('\r\nLinks found :')
+    print('\nLinks found :')
     for i in links:
         print(i)
-    print('\r\nFile names found :')
+    print('\nFile names found :')
     for i in filenames:
         print(i)
     n = 0
     for i in filenames:
         Plugin = requests.get(links[n], allow_redirects=True)
         open(path + '\\' + filenames[n], 'wb').write(Plugin.content)
-        print('Written ' + path + '\\' + filenames[n] + "\r\nfrom " + links[n])
+        print('Written ' + path + '\\' + filenames[n] + "\nfrom " + links[n])
         n = n+1
 
 Startup()
